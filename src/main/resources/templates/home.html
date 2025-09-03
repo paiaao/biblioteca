@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gerenciamento de Livros</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+<header>
+    <h1>Mini ERP de Biblioteca</h1>
+    <p>Gerenciamento de Empréstimos de Livros</p>
+</header>
+
+<main>
+    <section class="card-container">
+        <div class="card" id="card-livros">
+            <img src="assets/livro.png" alt="">
+            <h2>Gerenciar Livros</h2>
+            <p>- Visualize <br>
+                - Adicione <br>
+                - Edite <br>
+                - Remova livros do acervo</p>
+            <a href="#" class="btn" onclick="abrirPagina('livros')">Acervo de Livros</a>
+            <a href="#" class="btn" onclick="abrirPagina('livros')">Cadastrar Livro</a>
+        </div>
+
+        <div class="card" id="card-emprestimos">
+            <img src="assets/pedir-emprestado.png" alt="">
+            <h2>Gerenciar Empréstimos</h2>
+            <p>- Visualize Empréstimos <br>
+                - Registre Empréstimos <br>
+                - Edite Empréstimos <br>
+                - Registre Devoluções</p>
+            <a href="#" class="btn" onclick="abrirPagina('emprestimos')">Acessar</a>
+            <a href="#" class="btn" onclick="abrirPagina('reservas')">Registrar</a>
+        </div>
+
+        <div class="card" id="card-reservas">
+            <img src="assets/calendario.png" alt="">
+            <h2>Gerenciar Reservas</h2>
+            <p>- Visualize <br>
+                - Adicione <br>
+                - Edite <br>
+                - Remova reservas de livros</p>
+            <a href="#" class="btn" onclick="abrirPagina('reservas')">Acessar</a>
+            <a href="#" class="btn" onclick="abrirPagina('reservas')">Registrar</a>
+        </div>
+
+        <div class="card" id="card-usuarios">
+            <img src="assets/adicionar-usuario.png" alt="">
+            <h2>Gerenciar Usuários</h2>
+            <p>- Visualize <br>
+                - Adicione <br>
+                - Edite <br>
+                - Remova Usuários</p>
+            <a href="#" class="btn" onclick="abrirPagina('usuarios')">Usuários</a>
+            <a href="#" class="btn" onclick="abrirPagina('usuarios')">Cadastrar</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Universidade Filadélfia | Gerenciamento de Empréstimos de Livros</p>
+</footer>
+</body>
+</html>
