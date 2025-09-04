@@ -9,17 +9,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-@Controller
-@RequestMapping("/funcionario/livros")
+@Controller //Anotam a classe como uma controller
+@RequestMapping("/funcionario/livros") //Definem o prefixo da URL para todos os métodos da classe (/funcionario/livros).
 public class LivroController {
 
-    @Autowired
+    @Autowired //Injeta as dependências das services (LivroService e CategoriaService). O Spring se encarrega de criar e gerenciar essas instâncias.
     private LivroService livroService;
 
     @Autowired
     private CategoriaService categoriaService;
 
-    @GetMapping
+    @GetMapping //Mapeia métodos para requisições HTTP GET. Por exemplo, listar() é chamado quando o usuário acessa /funcionario/livros.
     public String listar(Model model) {
         model.addAttribute("listaLivros", livroService.listarTodos());
         return "funcionario/livros/lista";
@@ -32,7 +32,7 @@ public class LivroController {
         return "funcionario/livros/form";
     }
 
-    @PostMapping("/salvar")
+    @PostMapping("/salvar") //Mapeia métodos para requisições HTTP POST, usadas para enviar os dados dos formulários.
     public String salvar(@ModelAttribute Livro livro, RedirectAttributes ra) {
         // Lógica de negócio: Se for um novo livro, a quantidade disponível é igual ao estoque
         if (livro.getId() == null) {
