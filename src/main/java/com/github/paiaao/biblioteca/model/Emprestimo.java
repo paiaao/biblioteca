@@ -1,4 +1,4 @@
-package com.github.paiaao.bibliotecavirtual.model;
+package com.github.paiaao.biblioteca.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
