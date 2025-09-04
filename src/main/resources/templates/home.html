@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Gerenciamento de Livros</title>
-    <link rel="stylesheet" href="homestyle.css">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="/css/homestyle.css">
 </head>
 <body>
 <header>
@@ -22,8 +21,8 @@
                 - Adicione <br>
                 - Edite <br>
                 - Remova livros do acervo</p>
-            <a href="/livros/form.html" class="btn" onclick="abrirPagina('livros')">Acervo de Livros</a>
-            <a href="#" class="btn" onclick="abrirPagina('livros')">Cadastrar Livro</a>
+            <a href="#" class="btn" onclick="abrirPagina('livros')">Acervo de Livros</a>
+            <a th:href="@{/funcionario/livros/novo}" class="btn">Cadastrar Livro</a>
         </div>
 
         <div class="card" id="card-emprestimos">
