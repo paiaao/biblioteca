@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Categorias</title>
+  <link rel="stylesheet" th:href="@{/css/form.css}">
+</head>
+<body>
+<div class="container">
+  <h1>Lista de Categorias</h1>
+
+  <a th:href="@{/funcionario/categorias/nova}" class="btn">Nova Categoria</a>
+
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cat : ${categorias}">
+      <td th:text="${cat.id}"></td>
+      <td th:text="${cat.nome}"></td>
+      <td>
+        <a th:href="@{'/funcionario/categorias/editar/' + ${cat.id}}" class="btn">Editar</a>
+
+        <a th:href="@{'/funcionario/categorias/excluir/' + ${cat.id}}"
+           onclick="return confirm('Tem certeza que deseja excluir esta categoria?');"
+           class="btn">Excluir</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

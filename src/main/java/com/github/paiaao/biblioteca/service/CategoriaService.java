@@ -17,4 +17,15 @@ public class CategoriaService {
     public List<Categoria> listarTodas() {
         return categoriaRepository.findAll();
     }
+
+    public void salvar(Categoria categoria) {
+        categoriaRepository.save(categoria);
+    }
+    public void excluir(Long id) {
+        categoriaRepository.deleteById(id);
+    }
+    public Categoria buscarPorId(Long id) {
+        return categoriaRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Categoria inválida: " + id));
+    }
 }

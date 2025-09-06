@@ -57,6 +57,17 @@
             <a href="#" class="btn" onclick="abrirPagina('usuarios')">Usuários</a>
             <a href="#" class="btn" onclick="abrirPagina('usuarios')">Cadastrar</a>
         </div>
+        <div class="card" id="card-categorias">
+            <img src="assets/categoria.png" alt="">
+            <h2>Gerenciar Categorias</h2>
+            <p>- Visualize <br>
+                - Adicione <br>
+                - Edite <br>
+                - Remova Categorias</p>
+            <a th:href="@{/funcionario/categorias}" class="btn">Categorias</a>
+            <a th:href="@{/funcionario/categorias/nova}" class="btn">Cadastrar Categoria</a>
+        </div>
+
     </section>
 </main>
 
