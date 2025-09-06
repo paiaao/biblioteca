@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${livro.id == null ? 'Novo Livro' : 'Editar Livro'}"></title>
-    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" th:href="@{/css/form.css}">
 </head>
 <body>
 <div class="container">
