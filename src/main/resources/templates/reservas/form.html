@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Cadastro de Reserva</title>
+  <link rel="stylesheet" th:href="@{/css/form.css}">
+</head>
+<body>
+<h1 th:text="${reserva.id != null ? 'Editar Reserva' : 'Nova Reserva'}"></h1>
+
+<form th:action="@{/reservas}" th:object="${reserva}" method="post">
+  <input type="hidden" th:field="*{id}" />
+
+  <label>Cliente:</label>
+  <input type="text" th:field="*{cliente.nome}" /><br/>
+
+  <label>Livro:</label>
+  <input type="text" th:field="*{livro.titulo}" /><br/>
+
+  <label>Data da Reserva:</label>
+  <input type="date" th:field="*{dataReserva}" /><br/>
+
+  <button type="submit">Salvar</button>
+</form>
+
+<a th:href="@{/reservas}">Voltar</a>
+</body>
+</html>

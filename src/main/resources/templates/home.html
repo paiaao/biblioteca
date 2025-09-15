@@ -21,7 +21,7 @@
                 - Adicione <br>
                 - Edite <br>
                 - Remova livros do acervo</p>
-            <a href="#" class="btn" onclick="abrirPagina('livros')">Acervo de Livros</a>
+            <a th:href="@{/funcionario/livros}" class="btn">Acervo de Livros</a>
             <a th:href="@{/funcionario/livros/novo}" class="btn">Cadastrar Livro</a>
         </div>
 
@@ -32,8 +32,8 @@
                 - Registre Empréstimos <br>
                 - Edite Empréstimos <br>
                 - Registre Devoluções</p>
-            <a href="#" class="btn" onclick="abrirPagina('emprestimos')">Acessar</a>
-            <a href="#" class="btn" onclick="abrirPagina('reservas')">Registrar</a>
+            <a th:href="@{/emprestimos}" class="btn">Lista de Empréstimos</a>
+            <a th:href="@{/emprestimos/novo}" class="btn">Registrar Empréstimo</a>
         </div>
 
         <div class="card" id="card-reservas">
@@ -43,8 +43,8 @@
                 - Adicione <br>
                 - Edite <br>
                 - Remova reservas de livros</p>
-            <a href="#" class="btn" onclick="abrirPagina('reservas')">Acessar</a>
-            <a href="#" class="btn" onclick="abrirPagina('reservas')">Registrar</a>
+            <a th:href="@{/reservas}" class="btn">Lista de Reservas</a>
+            <a th:href="@{/reservas/nova}" class="btn">Registrar Reserva</a>
         </div>
 
         <div class="card" id="card-usuarios">
@@ -54,8 +54,8 @@
                 - Adicione <br>
                 - Edite <br>
                 - Remova Usuários</p>
-            <a href="#" class="btn" onclick="abrirPagina('usuarios')">Usuários</a>
-            <a href="#" class="btn" onclick="abrirPagina('usuarios')">Cadastrar</a>
+            <a th:href="@{/clientes}" class="btn">Usuários</a>
+            <a th:href="@{/clientes/novo}" class="btn">Cadastrar Usuário</a>
         </div>
         <div class="card" id="card-categorias">
             <img src="assets/categoria.png" alt="">

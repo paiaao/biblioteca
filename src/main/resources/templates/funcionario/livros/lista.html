@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Livros</title>
+  <link rel="stylesheet" th:href="@{/css/form.css}">
+</head>
+<body>
+<div class="container">
+  <h1>Lista de Livros</h1>
+
+  <div class="actions">
+    <a th:href="@{/}" class="btn">Início</a>
+    <a th:href="@{/funcionario/livros/novo}" class="btn">Cadastrar Livro</a>
+  </div>
+
+  <!-- Mensagens de sucesso -->
+  <div th:if="${mensagem}" class="alert">
+    <p th:text="${mensagem}"></p>
+  </div>
+
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Título</th>
+      <th>Autor</th>
+      <th>Categoria</th>
+      <th>Qtd. Estoque</th>
+      <th>Qtd. Disponível</th>
+      <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="livro : ${listaLivros}">
+      <td th:text="${livro.id}"></td>
+      <td th:text="${livro.titulo}"></td>
+      <td th:text="${livro.autor}"></td>
+      <td th:text="${livro.categoria.nome}"></td>
+      <td th:text="${livro.quantidadeEstoque}"></td>
+      <td th:text="${livro.quantidadeDisponivel}"></td>
+      <td>
+        <a th:href="@{'/funcionario/livros/editar/' + ${livro.id}}" class="btn">Editar</a>
+        <a th:href="@{'/funcionario/livros/deletar/' + ${livro.id}}"
+           onclick="return confirm('Tem certeza que deseja excluir este livro?');"
+           class="btn excluir">Excluir</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

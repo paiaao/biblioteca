@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Empréstimo</title>
+    <link rel="stylesheet" th:href="@{/css/form.css}">
+</head>
+<body>
+<h1 th:text="${emprestimo.id != null} ? 'Editar Empréstimo' : 'Novo Empréstimo'"></h1>
+
+<form th:action="@{/emprestimos}" th:object="${emprestimo}" method="post">
+
+    <input type="hidden" th:if="${emprestimo.id != null}" th:field="*{id}"/>
+
+    <!-- Cliente -->
+    <label for="cliente">Cliente:</label>
+    <select name="nomeCliente" required>
+        <option value="" disabled th:if="${emprestimo.cliente == null}" selected>Selecione o cliente</option>
+        <option th:each="c : ${clientes}"
+                th:value="${c.nome}"
+                th:text="${c.nome}"
+                th:selected="${emprestimo.cliente != null} ? ${c.nome} == ${emprestimo.cliente.nome} : false">
+        </option>
+    </select>
+    <br/><br/>
+
+    <!-- Livro -->
+    <label for="livro">Livro:</label>
+    <select th:field="*{livro.id}" required>
+        <option value="" disabled th:if="${emprestimo.livro == null}" selected>Selecione o livro</option>
+        <option th:each="l : ${livros}"
+                th:value="${l.id}"
+                th:text="${l.titulo}"
+                th:selected="${emprestimo.livro != null} ? ${l.id} == ${emprestimo.livro.id} : false">
+        </option>
+    </select>
+    <br/><br/>
+
+    <!-- Data de Empréstimo -->
+    <label for="dataEmprestimo">Data de Empréstimo:</label>
+    <input type="date" th:field="*{dataEmprestimo}" required/>
+    <br/><br/>
+
+    <!-- Data de Devolução -->
+    <label for="dataDevolucao">Data de Devolução:</label>
+    <input type="date" th:field="*{dataDevolucao}"/>
+    <br/><br/>
+
+    <button type="submit">Salvar</button>
+</form>
+
+<br/>
+<a th:href="@{/emprestimos}">Voltar para a lista</a>
+
+</body>
+</html>

@@ -34,7 +34,6 @@ public class LivroController {
 
     @PostMapping("/salvar") //Mapeia métodos para requisições HTTP POST, usadas para enviar os dados dos formulários.
     public String salvar(@ModelAttribute Livro livro, RedirectAttributes ra) {
-        // Lógica de negócio: Se for um novo livro, a quantidade disponível é igual ao estoque
         if (livro.getId() == null) {
             livro.setQuantidadeDisponivel(livro.getQuantidadeEstoque());
         }
