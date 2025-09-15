@@ -11,11 +11,10 @@
   <h1>Lista de Livros</h1>
 
   <div class="actions">
-    <a th:href="@{/}" class="btn">Início</a>
-    <a th:href="@{/funcionario/livros/novo}" class="btn">Cadastrar Livro</a>
+    <a th:href="@{/funcionario/livros/novo}" class="button-link">Cadastrar Livro</a>
   </div>
 
-  <!-- Mensagens de sucesso -->
+
   <div th:if="${mensagem}" class="alert">
     <p th:text="${mensagem}"></p>
   </div>
@@ -40,11 +39,13 @@
       <td th:text="${livro.categoria.nome}"></td>
       <td th:text="${livro.quantidadeEstoque}"></td>
       <td th:text="${livro.quantidadeDisponivel}"></td>
-      <td>
-        <a th:href="@{'/funcionario/livros/editar/' + ${livro.id}}" class="btn">Editar</a>
+      <td class="action-buttons">
+        <a th:href="@{'/funcionario/livros/editar/' + ${livro.id}}" class="edit">Editar</a>
         <a th:href="@{'/funcionario/livros/deletar/' + ${livro.id}}"
-           onclick="return confirm('Tem certeza que deseja excluir este livro?');"
-           class="btn excluir">Excluir</a>
+           class="delete"
+           onclick="return confirm('Tem certeza que deseja excluir este livro?');">
+          Excluir
+        </a>
       </td>
     </tr>
     </tbody>

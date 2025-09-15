@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import jakarta.servlet.http.HttpSession;
 
 @Controller //Anotam a classe como uma controller
 @RequestMapping("/funcionario/livros") //Definem o prefixo da URL para todos os métodos da classe (/funcionario/livros).
@@ -18,6 +19,14 @@ public class LivroController {
 
     @Autowired
     private CategoriaService categoriaService;
+
+    @GetMapping("/home")
+    public String home(HttpSession session) {
+        if (session.getAttribute("funcionarioLogado") == null) {
+            return "redirect:/auth/login";
+        }
+        return "home";
+    }
 
     @GetMapping //Mapeia métodos para requisições HTTP GET. Por exemplo, listar() é chamado quando o usuário acessa /funcionario/livros.
     public String listar(Model model) {

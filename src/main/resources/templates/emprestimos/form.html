@@ -12,7 +12,6 @@
 
     <input type="hidden" th:if="${emprestimo.id != null}" th:field="*{id}"/>
 
-    <!-- Cliente -->
     <label for="cliente">Cliente:</label>
     <select name="nomeCliente" required>
         <option value="" disabled th:if="${emprestimo.cliente == null}" selected>Selecione o cliente</option>
@@ -24,7 +23,7 @@
     </select>
     <br/><br/>
 
-    <!-- Livro -->
+
     <label for="livro">Livro:</label>
     <select th:field="*{livro.id}" required>
         <option value="" disabled th:if="${emprestimo.livro == null}" selected>Selecione o livro</option>
@@ -36,12 +35,10 @@
     </select>
     <br/><br/>
 
-    <!-- Data de Empréstimo -->
     <label for="dataEmprestimo">Data de Empréstimo:</label>
     <input type="date" th:field="*{dataEmprestimo}" required/>
     <br/><br/>
 
-    <!-- Data de Devolução -->
     <label for="dataDevolucao">Data de Devolução:</label>
     <input type="date" th:field="*{dataDevolucao}"/>
     <br/><br/>
@@ -50,7 +47,6 @@
 </form>
 
 <br/>
-<a th:href="@{/emprestimos}">Voltar para a lista</a>
 
 </body>
 </html>

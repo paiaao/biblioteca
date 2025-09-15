@@ -5,32 +5,38 @@
     <link rel="stylesheet" th:href="@{/css/form.css}">
 </head>
 <body>
-<h1>Reservas</h1>
+<div class="container">
+    <h1>Reservas</h1>
 
-<a th:href="@{/reservas/nova}">Nova Reserva</a>
+    <a th:href="@{/reservas/nova}" class="button-link">Nova Reserva</a>
 
-<table border="1">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Cliente</th>
-        <th>Livro</th>
-        <th>Data Reserva</th>
-        <th>Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="reserva : ${reservas}">
-        <td th:text="${reserva.id}"></td>
-        <td th:text="${reserva.cliente.nome}"></td>
-        <td th:text="${reserva.livro.titulo}"></td>
-        <td th:text="${reserva.dataReserva}"></td>
-        <td>
-            <a th:href="@{/reservas/editar/{id}(id=${reserva.id})}">Editar</a> |
-            <a th:href="@{/reservas/deletar/{id}(id=${reserva.id})}">Excluir</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Livro</th>
+            <th>Data Reserva</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="reserva : ${reservas}">
+            <td th:text="${reserva.id}"></td>
+            <td th:text="${reserva.cliente.nome}"></td>
+            <td th:text="${reserva.livro.titulo}"></td>
+            <td th:text="${reserva.dataReserva}"></td>
+            <td class="action-buttons">
+                <a th:href="@{/reservas/editar/{id}(id=${reserva.id})}" class="edit">Editar</a>
+                <a th:href="@{/reservas/deletar/{id}(id=${reserva.id})}"
+                   class="delete"
+                   onclick="return confirm('Tem certeza que deseja excluir esta reserva?');">
+                    Excluir
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

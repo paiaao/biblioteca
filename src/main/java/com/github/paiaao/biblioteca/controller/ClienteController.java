@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/clientes")
@@ -13,6 +14,15 @@ public class ClienteController {
 
     @Autowired
     private ClienteRepository clienteRepository;
+
+
+    @GetMapping("/home")
+    public String home(HttpSession session) {
+        if (session.getAttribute("funcionarioLogado") == null) {
+            return "redirect:/auth/login";
+        }
+        return "home";
+    }
 
     @GetMapping
     public String listarTodos(Model model) {

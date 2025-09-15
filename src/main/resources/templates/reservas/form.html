@@ -10,18 +10,36 @@
 <form th:action="@{/reservas}" th:object="${reserva}" method="post">
   <input type="hidden" th:field="*{id}" />
 
+  <!-- Cliente -->
   <label>Cliente:</label>
-  <input type="text" th:field="*{cliente.nome}" /><br/>
+  <select th:field="*{cliente.id}" required>
+    <option value="" disabled th:if="${reserva.cliente == null}" selected>Selecione o cliente</option>
+    <option th:each="c : ${clientes}"
+            th:value="${c.id}"
+            th:text="${c.nome}"
+            th:selected="${reserva.cliente != null} ? ${c.id} == ${reserva.cliente.id} : false">
+    </option>
+  </select>
+  <br/>
 
+  <!-- Livro -->
   <label>Livro:</label>
-  <input type="text" th:field="*{livro.titulo}" /><br/>
+  <select th:field="*{livro.id}" required>
+    <option value="" disabled th:if="${reserva.livro == null}" selected>Selecione o livro</option>
+    <option th:each="l : ${livros}"
+            th:value="${l.id}"
+            th:text="${l.titulo}"
+            th:selected="${reserva.livro != null} ? ${l.id} == ${reserva.livro.id} : false">
+    </option>
+  </select>
+  <br/>
 
   <label>Data da Reserva:</label>
-  <input type="date" th:field="*{dataReserva}" /><br/>
+  <input type="date" th:field="*{dataReserva}" required />
+  <br/>
 
   <button type="submit">Salvar</button>
 </form>
 
-<a th:href="@{/reservas}">Voltar</a>
 </body>
 </html>

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.github.paiaao.biblioteca.model.Livro;
+import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 @RequestMapping("/emprestimos")
@@ -23,6 +25,14 @@ public class EmprestimoController {
     private ClienteRepository clienteRepository;
     @Autowired
     private LivroRepository livroRepository;
+
+    @GetMapping("/home")
+    public String home(HttpSession session) {
+        if (session.getAttribute("funcionarioLogado") == null) {
+            return "redirect:/auth/login";
+        }
+        return "home";
+    }
 
     @GetMapping
     public String listarTodos(Model model) {
